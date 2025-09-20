@@ -1,0 +1,59 @@
+Experimento:
+
+def ExecuteExperiment(Hyperparameters):
+    RewardList = []
+    agent = new_agent
+    for testing_point from 1 to 50:
+        EvaluateTheEpisode(agent, Hyperparameters)
+        TrainModelByEpisodes(num_episodes=17, agent, Hyperparameters)
+
+    LastAgent = agent
+
+    for testing_point from 1 to 50:
+        RewardfromTestingEpisode = EvaluateTheEpisode(LastAgent, Hyperparameters)
+        SkipEpisodes(num_episodes=17)
+        RewardList.append(RewardfromTestingEpisode)
+
+    return mean(RewardList)
+
+## GET THE BEST HYPERPARAMETERS
+RewardsMeanBufferList = []
+MaxRewardAchieved = 0
+Hyperparameters = [a,b,c,d,e...]
+BestHyperparameters = []
+ContextVariables = [i, ii, iii, ....]
+
+def getBestHyperparameters(ContextVariables):
+    for trial from 1 to 100:
+        OptimizedRewardMean = ExecuteExperiment(Hyperparameters)
+
+        if len(RewardsMeanBufferList) >= 10:
+            pop(RewardsMeanBufferList)
+        RewardsMeanBufferList.append(OptimizedRewardMean)
+
+        if OptimizedRewardMean > MaxRewardAchieved:
+            MaxRewardAchieved = OptimizedRewardMean
+            BestHyperparameters = Hyperparameters
+
+        if len(RewardsMeanBufferList) >= 10 and max(RewardsMeanBufferList) < MaxRewardAchieved:
+            end for
+
+        Hyperparameters = HyperparametersUpdateByOptuna()
+
+
+    return BestHyperparameters
+
+
+## TEST THE BEST HYPERPARAMETERS
+BestHyperparameters = getBestHyperparameters(ContextVariables)
+
+RewardList = []
+for trial from 1 to 100:
+    OptimizedRewardMean = ExecuteExperiment(Hyperparameters)
+    RewardList.append(OptimizedRewardMean)
+
+Print(RewardList)
+
+
+
+
