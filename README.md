@@ -103,32 +103,6 @@ The research utilizes a diversified portfolio of 21 U.S. stocks across multiple 
 - **`LineChart/`**: Line chart generation for research paper
 - **`ScatterChart/`**: Scatter plot generation for research paper
 
-## Key Features
-
-### Trading Environment
-- **Custom Gymnasium Environment**: Multi-stock trading with continuous action space
-- **Daily Episode Structure**: Episodes end at day boundaries for realistic trading
-- **Technical Indicators**: RSI, MACD, CCI, ADX for enhanced decision making
-- **Correlation Tracking**: Real-time Pearson correlation with market benchmark
-- **Transaction Costs**: Realistic trading costs included in reward calculation
-
-### Reward Functions
-- **Sharpe Ratio Reward**: Risk-adjusted returns as primary objective
-- **Correlation Penalty**: Penalizes correlation with market benchmark
-- **Net Profit Reward**: Alternative reward function for comparison
-- **Return Memory**: Rolling window of returns for correlation calculation
-
-### RL Algorithms
-- **PPO (Proximal Policy Optimization)**: Policy gradient method
-- **A2C (Advantage Actor-Critic)**: Actor-critic method
-- **DDPG (Deep Deterministic Policy Gradient)**: Continuous control method
-- **Baseline Agents**: Random trading and SP500 buy-and-hold strategies
-
-### Experimental Design
-- **Systematic Parameter Variation**: Correlation punishment, reward types, memory sizes
-- **Statistical Validation**: Multiple runs with different random seeds
-- **Black Swan Testing**: Performance during market crashes
-- **Reproducibility**: Consistent experimental setup across all runs
 
 ## Results Summary
 
@@ -137,13 +111,6 @@ The research demonstrates that reinforcement learning agents can be trained to:
 - **Achieve superior Sharpe ratios** (13% better than benchmark)
 - **Maintain low correlation** with market index (0.15 Pearson correlation)
 - **Reduce losses during market crashes** by 35-41% in black swan scenarios
-
-## Usage
-
-1. **Data Collection**: Run notebooks in `1.DataExtraction/` to collect stock data
-2. **Preprocessing**: Execute `2.Preprocessing/Preprocessing_Setup.ipynb` to prepare data
-3. **Experiments**: Use notebooks in `3.Experiments/` to run different experimental configurations
-4. **Analysis**: Analyze results using notebooks in `4.ResultsExtraction/`
 
 ## Dependencies
 
@@ -157,18 +124,3 @@ The research demonstrates that reinforcement learning agents can be trained to:
 - Scipy
 - Optuna (for hyperparameter optimization)
 
-## License
-
-This project is licensed under the terms specified in the LICENSE file.
-
-## Citation
-
-If you use this work in your research, please cite:
-
-```
-[Your citation format here]
-```
-
-## Contact
-
-For questions or collaboration, please contact [your contact information].
